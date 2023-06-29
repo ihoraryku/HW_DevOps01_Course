@@ -1,2 +1,2 @@
-# [HW_DevOps01_Course_Git](https://github.com/ihoraryku/HW_DevOps01_Course_Git)
-# HW_DevOps01_Course_Python
+# [HW_DevOps01_Course_Git_Internals](https://github.com/ihoraryku/HW_DevOps01_Course_Git)
+# HW_DevOps01_Course_Python_Internals
