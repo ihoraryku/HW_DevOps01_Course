@@ -13,15 +13,15 @@ def calculate():
 
         Enter your choice (1-4): """
     )
-    if operator == "1":
-        operator = "+"
-    elif operator == "2":
-        operator = "-"
-    elif operator == "3":
-        operator = "*"
-    elif operator == "4":
-        operator = "/"
-    else:
+
+    try:
+        operator = {
+            "1": "+",
+            "2": "-",
+            "3": "*",
+            "4": "/"
+        }[operator]
+    except KeyError:
         print("Invalid choice. Please try again.")
         return
 
@@ -29,18 +29,13 @@ def calculate():
         print("Error: Cannot divide by zero.")
         return
 
-    if operator == "+":
-        result = num1 + num2
-        print("The result of addition is:", result)
-    elif operator == "-":
-        result = num1 - num2
-        print("The result of subtraction is:", result)
-    elif operator == "*":
-        result = num1 * num2
-        print("The result of multiplication is:", result)
-    elif operator == "/":
-        result = num1 / num2
-        print("The result of division is:", result)
+    try:
+        result = eval(f"{num1} {operator} {num2}")
+        print("The result is:", result)
+    except ZeroDivisionError:
+        print("Error: Cannot divide by zero.")
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
 
 
 calculate()
