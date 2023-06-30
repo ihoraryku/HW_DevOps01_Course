@@ -1,4 +1,4 @@
-print("Welcome to the Calculator Program! \n")
+print("Welcome to the Calculator Program!\n")
 
 
 def calculate():
@@ -31,7 +31,7 @@ def calculate():
 
     try:
         result = eval(f"{num1} {operator} {num2}")
-        print("The result is:", result)
+        print("\nThe result is:", result)
     except ZeroDivisionError:
         print("Error: Cannot divide by zero.")
     except Exception as e:
