@@ -1,7 +1,7 @@
-print("Welcome to the Calculator Program!\n")
-
 
 def calculate():
+    print("Welcome to the Calculator Program!\n")
+
     num1 = int(input("Please enter the first number: "))
     num2 = int(input("Please enter the second number: "))
     operator = input(
@@ -22,20 +22,20 @@ def calculate():
             "4": "/"
         }[operator]
     except KeyError:
-        print("Invalid choice. Please try again.")
+        print("\nInvalid choice. Please try again.")
         return
 
     if operator == "/" and num2 == 0:
-        print("Error: Cannot divide by zero.")
+        print("\nError: Cannot divide by zero.")
         return
 
     try:
         result = eval(f"{num1} {operator} {num2}")
         print("\nThe result is:", result)
     except ZeroDivisionError:
-        print("Error: Cannot divide by zero.")
+        print("\nError: Cannot divide by zero.")
     except Exception as e:
-        print(f"An error occurred: {str(e)}")
+        print(f"\nAn error occurred: {str(e)}")
 
 
 calculate()
