@@ -65,7 +65,10 @@ def perform_operation(num1, num2, operator):
         result = eval(f"{num1} {operator} {num2}")
         return result
     except ZeroDivisionError:
-        print("\nError: Cannot divide by zero. \nPlease select another value or operation and try again!")
+        print("""\n
+Error: Cannot divide by zero. When dividing, the second number must not be zero. 
+Please enter another second number or select another operation and try again!"""
+              )
         return None
     except Exception as error:
         print(f"\nAn error occurred: {str(error)}")
