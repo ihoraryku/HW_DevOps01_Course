@@ -23,7 +23,7 @@ def get_numbers():
             except ValueError:
                 print("\nInvalid value. Please enter an integer or float number!\n")
 
-        print(f"You entered the wrong value {MAX_ATTEMPTS} times. Please check your initial data and try again later.")
+        print(f"\nYou entered the wrong value {MAX_ATTEMPTS} times. Please check your initial data and try again later.")
         exit(0)
 
     num1 = get_float_input("Please enter the first number: ")
@@ -56,7 +56,7 @@ def get_operator():
         except KeyError:
             print("\nInvalid choice. Please enter an integer between 1 and 4!")
 
-    print(f"You entered the wrong value {MAX_ATTEMPTS} times. Please check your initial data and try again later.")
+    print(f"\nYou entered the wrong value {MAX_ATTEMPTS} times. Please check your initial data and try again later.")
     exit(0)
 
 
