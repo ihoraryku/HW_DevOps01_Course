@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
-
+# The number of incorrect data entry attempts for get_numbers() and get_operator()
 MAX_ATTEMPTS = 3
-DECIMAL_PRECISION = None
+# Change the number of decimal places of the result. If None is specified then rounding does not apply.
+DECIMAL_PRECISION = 3
 
 
 def calculate():
@@ -23,7 +24,8 @@ def get_numbers():
             except ValueError:
                 print("\nInvalid value. Please enter an integer or float number!\n")
 
-        print(f"\nYou entered the wrong value {MAX_ATTEMPTS} times. Please check your initial data and try again later.")
+        print(f"""\nYou entered the wrong value {MAX_ATTEMPTS} times. 
+        Please check your initial data and try again later.""")
         exit(0)
 
     num1 = get_float_input("Please enter the first number: ")
@@ -81,14 +83,25 @@ def print_result(result):
         print("\nThe result is:", result)
 
 
-def format_result(result):
-    if DECIMAL_PRECISION is not None:
-        if result == int(result):
-            return int(result)
+def format_result(number):
+    try:
+        number = float(number)
+        if number == int(number):
+            number = int(number)
+        return round_result(number)
+    except ValueError:
+        return round_result(number)
+
+
+def round_result(number):
+    try:
+        if DECIMAL_PRECISION is not None:
+            return round(number, DECIMAL_PRECISION)
         else:
-            return round(result, DECIMAL_PRECISION)
-    else:
-        return result
+            return number
+    except Exception as error:
+        print(f"\nAn error occurred while formatting the result: {str(error)}")
+        return None
 
 
 calculate()
