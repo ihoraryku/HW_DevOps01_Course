@@ -7,7 +7,7 @@ DECIMAL_PRECISION = None
 
 
 def calculate():
-    print("Welcome to the Calculator Program!\n")
+    print("\nWelcome to the Calculator Program!\n")
 
     num1, num2 = get_numbers()
     operator = get_operator()
