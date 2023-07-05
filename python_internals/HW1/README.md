@@ -2,7 +2,7 @@
 ## Create a simple calculator that performs arithmetic operations: addition, subtraction, multiplication, and division
 ### If you're experiencing issues, make sure that your script has executable permissions. You can use the chmod command to assign execution permissions:
 #### chmod +x calculator.py
-### If you are having an error:
+### If you are having an error, like:
 #### /usr/bin/env: ‘python3\r’: No such file or directory
 #### /usr/bin/env: use -[v]S to pass options in shebang lines
 
