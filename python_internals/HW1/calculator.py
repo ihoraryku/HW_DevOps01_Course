@@ -3,7 +3,7 @@
 # The number of incorrect data entry attempts for get_numbers() and get_operator()
 MAX_ATTEMPTS = 3
 # Change the number of decimal places of the result. If None is specified then rounding does not apply.
-DECIMAL_PRECISION = 3
+DECIMAL_PRECISION = None
 
 
 def calculate():
