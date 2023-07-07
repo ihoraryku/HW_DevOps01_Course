@@ -58,7 +58,7 @@ def get_operator():
         except KeyError:
             print("\nInvalid choice. Please enter an integer between 1 and 4!")
 
-    print(f"\nYou entered the wrong value {MAX_ATTEMPTS} times. Please check your initial data and try again later.")
+    print(f"\nYou entered the wrong value {MAX_ATTEMPTS} times. Please check your initial data and try again later!")
     exit(0)
 
 
