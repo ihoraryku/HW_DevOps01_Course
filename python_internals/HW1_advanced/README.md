@@ -7,7 +7,9 @@
 - Display the generated password to the user.
 
 ### If you're experiencing issues, make sure that your script has executable permissions. You can use the chmod command to assign execution permissions:
-`chmod +x calculator.py`
+```
+chmod +x calculator.py
+```
 ### If you are having an error, like:
 ```
 /usr/bin/env: ‘python3\r’: No such file or directory
