@@ -1,4 +1,4 @@
-# Homework 2
+# Homework 1: Advanced
 ## Generate a random password consisting of a combination of uppercase letters, lowercase letters, numbers, and special characters. Ensure that the generated password meets the following criteria:
 - Contains at least one uppercase letter
 - Contains at least one lowercase letter
