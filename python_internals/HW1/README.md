@@ -1,7 +1,7 @@
 # Homework 1
 ## Create a simple calculator that performs arithmetic operations: addition, subtraction, multiplication, and division
 ### If you're experiencing issues, make sure that your script has executable permissions. You can use the chmod command to assign execution permissions:
-#### chmod +x calculator.py
+`chmod +x calculator.py`
 ### If you are having an error, like:
 #### /usr/bin/env: ‘python3\r’: No such file or directory
 #### /usr/bin/env: use -[v]S to pass options in shebang lines
@@ -11,13 +11,13 @@
 
 #### Install dos2unix on Linux using the following command:
 
-#### sudo apt-get install dos2unix
+`sudo apt-get install dos2unix`
 #### If you're using a different Linux distribution, use the corresponding package installation command for your system.
 
 #### Run dos2unix to remove the carriage return characters from the script file:
 
-#### dos2unix calculator.py
+`dos2unix calculator.py`
 #### This command will overwrite the calculator.py file, removing the carriage return characters.
 
 #### Now you can re-run your script, and the carriage return error should be resolved:
-#### ./calculator.py
+`./calculator.py`
