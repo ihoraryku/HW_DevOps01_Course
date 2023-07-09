@@ -50,7 +50,7 @@ def generate_password(password_length):
 
 
 def copy_password_to_clipboard(password):
-    save_to_clipboard = input("\nCopy password to clipboard (yes or no)? ").lower()
+    save_to_clipboard = input("\nCopy password to clipboard? (yes or no(default)): ").lower()
 
     if save_to_clipboard == 'yes':
         pyperclip.copy(password)
@@ -60,7 +60,7 @@ def copy_password_to_clipboard(password):
 
 
 def save_password_to_file(password):
-    save_to_file = input("\nSave password to file (yes or no)? ").lower()
+    save_to_file = input("\nSave password to file? (yes or no(default)): ").lower()
 
     if save_to_file == 'yes':
         with open("password.txt", "w") as file:
