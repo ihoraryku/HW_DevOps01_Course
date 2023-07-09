@@ -37,7 +37,7 @@ dos2unix password_generator.py
 ```
 ./password_generator.py
 ```
-#### To run the script you need to install the `pyperclip` package, use the command:
+#### The project uses a third-party module `pyperclip`, to run the script it must be installed, use the command:
 ```
 pip install pyperclip
 ```
