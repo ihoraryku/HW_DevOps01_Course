@@ -20,13 +20,13 @@ def get_password_length():
 
             if not password_length.isdigit():
                 raise ValueError(
-                    "\nThe entered password length is invalid! \nPlease enter an integer number between 4 and 32.")
+                    f"\nThe entered password length is invalid! \nPlease enter an integer number between 4 and {MAX_PASSWORD_LENGTH}.")
 
             password_length = int(password_length)
 
             if password_length < 4 or password_length > MAX_PASSWORD_LENGTH:
                 raise ValueError(
-                    "\nThe entered password length is invalid! \nPlease enter the length again, it should be between 4 and 32 characters.")
+                    f"\nThe entered password length is invalid! \nPlease enter the length again, it should be between 4 and {MAX_PASSWORD_LENGTH} characters.")
 
             return password_length
 
