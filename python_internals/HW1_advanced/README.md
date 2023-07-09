@@ -27,6 +27,8 @@
 
 #### Now you can re-run your script, and the carriage return error should be resolved:
 `./password_generator.py`
-#### To install the necessary dependencies, use the command:
+#### To run the script you need to install the `pyperclip` package, use the command:
+`pip install pyperclip`
+or
 `pip install -r requirements.txt`
 
