@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
-import os
 import platform
 import getpass
-import collections
+import subprocess
 from string import digits, punctuation, ascii_lowercase, ascii_uppercase
 from random import choice, shuffle
-import pwd
 
 
-class NonLinuxOperatingSystemError(Exception):
-    pass
+# import pwd
 
 
 class LinuxPasswordManager:
@@ -22,13 +19,20 @@ class LinuxPasswordManager:
 
     def check_os_compatibility(self):
         """
-        Checks if the operating system is Linux.
+        Checks whether the operating system is Linux.
 
-        Raises:
+        Causes:
             NonLinuxOperatingSystemError: If the operating system is not Linux.
         """
-        if platform.system() != "Linux":
-            raise NonLinuxOperatingSystemError("This script is only for Linux. Please run it on a Linux machine.")
+        try:
+            os_name = platform.system()
+            if os_name != "Linux":
+                raise Exception(
+                    f"This script is for Linux only. Please run it on a Linux machine. Your operating system: {os_name}"
+                )
+        except Exception as error:
+            print(str(error))
+            exit(1)
 
     def get_username(self):
         """
@@ -43,7 +47,11 @@ class LinuxPasswordManager:
         Returns:
             bool: True if the user exists, False otherwise.
         """
-        return self.username in (user.pw_name for user in pwd.getpwall())
+        try:
+            subprocess.check_output(['id', self.username])
+            return True
+        except subprocess.CalledProcessError:
+            return False
 
     def generate_password(self):
         """
@@ -102,10 +110,6 @@ class LinuxPasswordManager:
         if len(self.password) < self.MIN_PASSWORD_LENGTH:
             return False
 
-        repeated_characters = collections.Counter(filter(str.isalnum, self.password))
-        if any(count > 1 for count in repeated_characters.values()):
-            return False
-
         if any(word in self.password for word in self.DICTIONARY_WORDS):
             return False
 
@@ -115,8 +119,11 @@ class LinuxPasswordManager:
         """
         Sets the user's password using the 'chpasswd' command with sudo privileges.
         """
-        command = f"echo '{self.username}:{self.password}' | sudo chpasswd"
-        os.system(command)
+        command = ['sudo', 'chpasswd']
+        input_string = f"{self.username}:{self.password}"
+
+        # Run the command with input string
+        subprocess.run(command, input=input_string, text=True)
 
         # Save the password to a file
         with open("password.txt", "w") as file:
@@ -141,7 +148,7 @@ class LinuxPasswordManager:
         self.check_os_compatibility()
         self.get_username()
         if not self.check_user_existence():
-            print("The user does not exist.")
+            print("The user does not exist. Please enter another user name.")
             return
         self.get_password()
         self.set_password()
